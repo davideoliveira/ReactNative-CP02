@@ -1,8 +1,25 @@
-import react from "react";
+import react, { useState } from "react";
 import { StyleSheet, Text, View } from "react-native";
-import {  Image, ImageBackground, Pressable, TextInput } from "react-native";
+import {  Image, ImageBackground, Pressable, Alert, TextInput } from "react-native";
+
 
 const CadastroScreen = () => {
+
+    const [username, setUserName]=useState(null)
+    const [nome, setNome]=useState(null)
+    const [senha,setSenha]=useState(null)
+    const [confirmSenha, setConfirmSenha]=useState(null)
+
+    const handalert = () => {
+        Alert.alert(
+            "Sucesso" ,
+            " UserName:  \n Nome completo: \n Senha: \n confirmar senha: \n Genero: ",
+            
+            [
+                {text:"Ok", onPress: () => console.log("OK Pressed")}
+            ]
+        )
+    }
 
 
     return (
@@ -13,19 +30,27 @@ const CadastroScreen = () => {
             <Text style={styles.textTitle}>Cadastrar</Text>
             
             <TextInput style={styles.input} 
+            onChangeText={setUserName}
+            value = {username}
             placeholder ='UserName'/>
 
             <TextInput style={styles.input} 
+            onChangeText={setNome}
+            value = {nome}
             placeholder ='Nome Completo'/>
 
             <TextInput style={styles.input} 
+            onChangeText={setSenha}
+            value = {senha}
             placeholder ='Senha'/>
 
             <TextInput style={styles.input} 
+            onChangeText={setConfirmSenha}
+            value = {confirmSenha}
             placeholder ='Confirmar Senha'/>
 
             
-            <Pressable style={styles.button}>
+            <Pressable style={styles.button} onPress={handalert} >
                 <Text style={styles.text}>CADASTRAR</Text>
             </Pressable>
 
