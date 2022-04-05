@@ -1,19 +1,20 @@
 import react, { useState } from "react";
 import { StyleSheet, Text, View } from "react-native";
 import {  Image, ImageBackground, Pressable, Alert, TextInput } from "react-native";
+import Radio from '../components/Radio';
 
-
-const CadastroScreen = () => {
+const CadastroScreen = ({ navigation }) => {
 
     const [username, setUserName]=useState(null)
     const [nome, setNome]=useState(null)
     const [senha,setSenha]=useState(null)
     const [confirmSenha, setConfirmSenha]=useState(null)
+    const [genero, setGenero] = useState(0)
 
     const handalert = () => {
         Alert.alert(
             "Sucesso" ,
-            " UserName:  \n Nome completo: \n Senha: \n confirmar senha: \n Genero: ",
+            " UserName:  \n Nome completo: \n Senha: \n confirmar senha: \n Genero: ", 
             
             [
                 {text:"Ok", onPress: () => console.log("OK Pressed")}
@@ -49,12 +50,17 @@ const CadastroScreen = () => {
             value = {confirmSenha}
             placeholder ='Confirmar Senha'/>
 
-            
+            <Radio 
+            selected={genero}
+            options={['Masculino', 'Feminino']} 
+            onChanceSelect={(opt, i) => setGenero(i)}/>
+
+
             <Pressable style={styles.button} onPress={handalert} >
                 <Text style={styles.text}>CADASTRAR</Text>
             </Pressable>
 
-            <Pressable style={styles.button}>
+            <Pressable style={styles.button} onPress={() => navigation.replace('Login')}>
                 <Text style={styles.text}>ENTRAR</Text>
             </Pressable>
 
@@ -62,7 +68,6 @@ const CadastroScreen = () => {
         </View>
     )
 }
-export default CadastroScreen;
 
 
 const styles = StyleSheet.create({
@@ -111,3 +116,5 @@ const styles = StyleSheet.create({
         height: 40,
     }
   });
+
+  export default CadastroScreen;

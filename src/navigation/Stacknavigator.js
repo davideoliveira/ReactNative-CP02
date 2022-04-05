@@ -3,11 +3,11 @@ import { createNativeStackNavigator } from '@react-navigation/native-stack';
 import LoginScreen from '../screens/LoginScreen';
 import CadastroScreen from '../screens/CadastroScreen';
 
-const Stack = createNativeStackNavigator()
+const Stack = createNativeStackNavigator();
 
 export const MainStackNavigator = () => {
     return (
-        <Stack.Navigator initialRouteName="Login">
+        <Stack.Navigator initialRouteName="Cadastrar">
             <Stack.Screen name="Login" component={LoginScreen}
                 options={{headerShown: false}}
                 />
@@ -15,5 +15,5 @@ export const MainStackNavigator = () => {
                 options={{headerShown: false}}
                 />
         </Stack.Navigator>
-    )
+    );
 }
