@@ -23,6 +23,7 @@ const styles = StyleSheet.create({
     optContainer: {
         flexDirection: 'row',
         alignItems: 'center',
+        marginLeft: 15
     },
     outlineCircle: {
         width: 20,
