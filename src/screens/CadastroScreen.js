@@ -17,11 +17,10 @@ const CadastroScreen = ({ navigation }) => {
     const handalert = () => {
         Alert.alert(
             "Sucesso" ,
-            " UserName: " + username + 
+            " Username: " + username + 
             "\n Nome completo: "+ nome +
             "\n Senha: " + senha +
-            "\n Confirmar Senha: " + confirmSenha +
-            "\n Genero: " + genero 
+            "\n Confirmar Senha: " + confirmSenha, 
             
             [
                 {text:"Ok", onPress: () => console.log("OK Pressed")}
@@ -40,7 +39,7 @@ const CadastroScreen = ({ navigation }) => {
             <TextInput style={styles.input} 
             onChangeText={setUserName}
             value = {username}
-            placeholder ='UserName'
+            placeholder ='Username'
             placeholderTextColor={'white'}/>
 
             <TextInput style={styles.input} 
@@ -72,7 +71,7 @@ const CadastroScreen = ({ navigation }) => {
             
             <Checkbox
             selected={check}
-            values={['li e concordo com o termo de uso']}
+            values={['Li e concordo com o termo de uso']}
             onChanceSelect={() => check == 1 ? setCheck(0) : setCheck(1)}/>
 
             <Checkbox
@@ -87,7 +86,7 @@ const CadastroScreen = ({ navigation }) => {
             </Pressable>
 
             <Pressable style={styles.button} onPress={() => navigation.replace('Login')}>
-                <Text style={styles.text}>ENTRAR</Text>
+                <Text style={styles.text}>VOLTAR</Text>
             </Pressable>
 
             </ImageBackground>
